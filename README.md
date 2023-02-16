@@ -54,17 +54,18 @@ Class Bateau
 ### Etape 4:
 Créer dans index.php une instance de la classe Bateau et afficher ses informations.
 
-<div align="center"><img src="Assets/boat.png" alt="" width="400px"></div>
-
 ```php
-include_once "Bateau.php"
+include_once "bateau.php"
 ```
 
+Une possibilité d'affichage:
+<div align="center"><img src="Assets/boat.png" alt="" width="400px"></div>
+
 ### Etape 5:
-Créer un fichier Equipage.php et implémenter la classe Equipage suivante:
+Créer un fichier equipage.php et implémenter la classe Equipage suivante:
 
 ```php
-include_once "Bateau.php"
+include_once "bateau.php"
 
 class Equipage extends Bateau
 {
@@ -92,6 +93,61 @@ class Equipage extends Bateau
 Dans le fichier index.php, créer une instance de la classe Equipage et afficher ses informations.
 
 ```php
-include_once "Equipage.php"
+include_once "equipage.php"
 ```
+Une possibilité d'affichage:
 <div align="center"><img src="Assets/crew.png" alt="" width="400px"></div>
+
+### Etpae 7:
+Créer le fichier travail.php, dans celui-ci créer l'interface Travail
+
+```php
+interface Travail
+{
+    public function travail($crew);
+}
+```
+
+### Etape 8:
+Créer les classes Cuisine, Navigation et Moteur toutes impémentant l'interface Travail.
+
+```php
+class Cuisine implements Travail 
+{
+
+    public function travail($equipage) {
+        foreach($equipage->obtenirEquipage() as $membre) {
+            if ($membre == "Cuisinier") {
+                echo "Le Cuisinier cuisine pour l'équipage.\n";
+            } else {
+                echo $membre . " mange.\n"
+            }
+        }
+    }
+}
+
+//implémenter de manière similaire les classes Navigation et Moteur
+```
+### Etape 9:
+Implémenter dans la classe Equipage la nouvelle méthode "travail".
+
+```php
+public function travail($travail) {
+    $travail->travail($this);
+}
+```
+
+### Etape 10:
+Dans index.php, créer les instances de Cuisine, Navigation et Moteur puis appeler la méthode travail d'instance d'Equipage pour chaque travail.
+
+```php
+include_once "travail.php"
+
+$cuisine = new Cuisine();
+
+$monEquipage->travail($cuisine);
+
+//à faire pour chaque instance de travail
+```
+Une possibilité d'affichage:
+<div align="center"><img src="Assets/travail.png" alt="" width="400px"></div>
