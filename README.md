@@ -7,7 +7,7 @@ Un accompagnement sur les classes en PHP et l'utilisation de plusieurs fichier
 Créer les fichiers index.php et bateau.php.
 
 ## Etape 2:
-Dans le fichier boat.php, implémenter la classe Bateau suivante:
+Dans le fichier bateau.php, implémenter la classe Bateau suivante:
 
 ```php
 Class Bateau 
