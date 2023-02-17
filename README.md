@@ -17,7 +17,7 @@ Class Bateau
     private $hauteur = 0;
     private $largeur = 0;
 
-    public function __construct($nom, $longeur, $largeur, $hauter)
+    public function __construct($nom, $longeur, $largeur, $hauteur)
     {
         /*
         *   partie à implémenter
